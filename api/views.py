@@ -49,12 +49,16 @@ def get_drop(request):
     return HttpResponse(n)
 
 
+from django.views.decorators.csrf import csrf_exempt
+
+
+@csrf_exempt
 def donate_webhook(request):
     if request.method == "POST":
         try:
             data: dict = json.loads(request.body.decode())
         except ValueError:
-            return JsonResponse({'error': '0',})
+            return JsonResponse({'error': '0', })
         print(data)
         if data.get("type") == "confirm":
             return HttpResponse("ONoppDhJXM")
@@ -66,4 +70,3 @@ def donate_webhook(request):
             set_data(d)
             return HttpResponse("OK")
     return HttpResponseNotFound()
-
