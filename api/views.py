@@ -62,7 +62,7 @@ def donate_webhook(request):
         print(data)
         if data.get("type") == "confirm":
             return HttpResponse("ONoppDhJXM")
-        s = data.get("sum")
+        s = int(data.get("sum", 0))
         if s:
             d = get_data()
             d["non_used"] += s
