@@ -1,7 +1,7 @@
 import json
 import os.path
 
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
 # Мне лень поэтому нормальной бд не будет. хЫ!
@@ -57,7 +57,7 @@ def donate_webhook(request):
             return JsonResponse({'error': '0',})
         print(data)
         if data.get("type") == "confirm":
-            return HttpResponse("OK")
+            return HttpResponse("ONoppDhJXM")
         s = data.get("sum")
         if s:
             d = get_data()
@@ -65,4 +65,5 @@ def donate_webhook(request):
             d["collected"] += s
             set_data(d)
             return HttpResponse("OK")
+    return HttpResponseNotFound()
 
