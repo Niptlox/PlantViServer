@@ -46,7 +46,7 @@ def get_drop(request):
     n = d["non_used"]
     d["non_used"] = n % PRICE
     set_data(d)
-    return HttpResponse(n)
+    return HttpResponse(n // PRICE)
 
 
 from django.views.decorators.csrf import csrf_exempt
