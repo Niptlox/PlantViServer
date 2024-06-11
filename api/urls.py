@@ -23,5 +23,6 @@ urlpatterns = [
     path('info/set/', views.set_info, name="set_info"),
     path('info/get/', views.get_info, name="get_info"),
     path('drop/', views.get_drop, name="drop"),
+    path('add/', views.add, name="add"),
     path("donate_webhook/", views.donate_webhook)
 ]

@@ -70,3 +70,13 @@ def donate_webhook(request):
             set_data(d)
             return HttpResponse("OK")
     return HttpResponseNotFound()
+
+
+def add(request):
+    s = 100
+    # if s:
+    d = get_data()
+    d["non_used"] += s
+    d["collected"] += s
+    set_data(d)
+    return HttpResponse("OK")
